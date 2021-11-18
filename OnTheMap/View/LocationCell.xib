@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="56" id="Z7g-Vo-2OG" customClass="MessageCell" customModule="OnTheMap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z7g-Vo-2OG" id="yXf-tJ-VIG">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="56"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UX9-2m-Dbf">
+                        <rect key="frame" x="5" y="5" width="400" height="41"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FnY-Ny-Eed">
+                                <rect key="frame" x="0.0" y="-0.5" width="40" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="C0O-XY-5oa"/>
+                                    <constraint firstAttribute="width" constant="40" id="wEF-n1-0Mv"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="suC-D2-q1q">
+                                <rect key="frame" x="40" y="0.0" width="360" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ai2-ej-UeK">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV7-Vl-XVV">
+                                        <rect key="frame" x="0.0" y="20.5" width="360" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="suC-D2-q1q" secondAttribute="bottom" id="613-yb-AfI"/>
+                            <constraint firstItem="suC-D2-q1q" firstAttribute="top" secondItem="UX9-2m-Dbf" secondAttribute="top" id="9AU-mg-WQN"/>
+                            <constraint firstAttribute="trailing" secondItem="suC-D2-q1q" secondAttribute="trailing" id="M3q-wj-jhl"/>
+                            <constraint firstItem="suC-D2-q1q" firstAttribute="leading" secondItem="FnY-Ny-Eed" secondAttribute="trailing" id="UDl-SF-2fs"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UX9-2m-Dbf" firstAttribute="leading" secondItem="yXf-tJ-VIG" secondAttribute="leading" constant="5" id="EFJ-3Y-TN5"/>
+                    <constraint firstAttribute="trailing" secondItem="UX9-2m-Dbf" secondAttribute="trailing" constant="5" id="eLz-3s-3cI"/>
+                    <constraint firstItem="UX9-2m-Dbf" firstAttribute="top" secondItem="yXf-tJ-VIG" secondAttribute="top" constant="5" id="jkv-FE-GYO"/>
+                    <constraint firstAttribute="bottom" secondItem="UX9-2m-Dbf" secondAttribute="bottom" constant="5" id="yD2-3Z-979"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cell" destination="yXf-tJ-VIG" id="8n2-X9-dnZ"/>
+                <outlet property="mediaURLLbl" destination="dV7-Vl-XVV" id="mmr-Ph-ElJ"/>
+                <outlet property="nameLbl" destination="Ai2-ej-UeK" id="1VN-tS-qMV"/>
+                <outlet property="pinImgView" destination="FnY-Ny-Eed" id="Wh5-cB-QAF"/>
+            </connections>
+            <point key="canvasLocation" x="-326.08695652173918" y="-72.321428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+    </resources>
+</document>
