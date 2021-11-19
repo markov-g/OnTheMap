@@ -18,4 +18,5 @@ struct StudentInformation: Codable {
     let objectId: String?
     let uniqueKey: String?
     let updatedAt: String?
+    
 }
