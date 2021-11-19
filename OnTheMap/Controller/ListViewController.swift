@@ -27,7 +27,7 @@ class ListViewController: UIViewController {
         let newLocationVC = storyboard.instantiateViewController(withIdentifier: "AddNewLocationViewController") as! AddNewLocationViewController
         newLocationVC.modalPresentationStyle = .fullScreen
         newLocationVC.modalTransitionStyle = .crossDissolve
-        self.present(newLocationVC, animated: true, completion: nil)
+        present(newLocationVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

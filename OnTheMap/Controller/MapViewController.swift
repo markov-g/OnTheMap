@@ -10,7 +10,7 @@ import MapKit
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    let numberOfStudentLocations: Int = 150
+    let numberOfStudentLocations: Int = 100
     // We will create an MKPointAnnotation for each dictionary in "locations". The
     // point annotations will be stored in this array, and then provided to the map view.
     var annotations = [MKPointAnnotation]()
@@ -38,7 +38,7 @@ class MapViewController: UIViewController {
         let newLocationVC = storyboard.instantiateViewController(withIdentifier: "AddNewLocationViewController") as! AddNewLocationViewController
         newLocationVC.modalPresentationStyle = .fullScreen
         newLocationVC.modalTransitionStyle = .crossDissolve
-        self.present(newLocationVC, animated: true, completion: nil)
+        present(newLocationVC, animated: true, completion: nil)
     }
     
     func handleStudentLocationResponse(studentInfos: [StudentInformation]?, error: Error?) {
@@ -58,6 +58,7 @@ class MapViewController: UIViewController {
     }
     
     func addAnnotations() -> Void {
+        mapView.removeAnnotations(mapView.annotations)
         for student in StudentModel.studentInfos {
             let annotation = obtainAnnotation(for: student)
             

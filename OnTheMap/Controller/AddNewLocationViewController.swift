@@ -14,19 +14,23 @@ class AddNewLocationViewController: UIViewController {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var findLocationBtn: UIButton!
     @IBOutlet weak var cancelBarBtn: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-            // Do any additional setup after loading the view.
     }
-    
+ 
     @IBAction func findLocationBtnTapped(_ sender: UIButton) {
+        setLoading(true)
+        
         guard let locationText = locationTextField.text, !locationText.isEmpty else {
             showFailure(title: "Error", message: "Please provide a location")
+            setLoading(false)
             return
         }
         
         guard let linkText = urlTextField.text, !linkText.isEmpty, checkLinkValidity(urlTextField.text!) else {
             showFailure(title: "Error", message: "Please provide valid URL!")
+            setLoading(false)
             return
         }
         
@@ -35,6 +39,7 @@ class AddNewLocationViewController: UIViewController {
         geocoder.geocodeAddressString(locationText) { placemarks, error in
             if let error = error {
                 self.showFailure(title: "Location Not Found", message: error.localizedDescription)
+                self.setLoading(false)
             }
             guard let placemark = placemarks?.first, let location = placemark.location else { return }
             
@@ -54,9 +59,29 @@ class AddNewLocationViewController: UIViewController {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewController(withIdentifier: "AddNewLocationMapViewController")as! AddNewLocationMapViewController
         resultVC.student = newStudent
+        
+        setLoading(false)
         self.present(resultVC, animated: true, completion: nil)
     }
     
     @IBAction func cancelBarBtnTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    func setLoading(_ loading: Bool) {
+        if loading {
+            DispatchQueue.main.async {
+                self.activityIndicator.startAnimating()
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
+        }
+        DispatchQueue.main.async {
+            self.locationTextField.isEnabled = !loading
+            self.urlTextField.isEnabled = !loading
+            self.findLocationBtn.isEnabled = !loading
+        }
     }
 }

@@ -294,12 +294,18 @@
                                         <barButtonItem key="leftBarButtonItem" title="CANCEL" id="cm5-Da-HMS">
                                             <connections>
                                                 <action selector="cancelBarBtnTapped:" destination="nro-0f-dsN" id="VjH-sM-BRv"/>
-                                                <segue destination="hYf-GL-jqS" kind="presentation" modalPresentationStyle="fullScreen" id="Fzz-xi-WNg"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vLZ-j7-Gst">
+                                <rect key="frame" x="177" y="647" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Lkx-w9-zBw"/>
+                                    <constraint firstAttribute="height" constant="20" id="Wlr-PQ-aQR"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gof-pv-4cJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -313,7 +319,9 @@
                             <constraint firstItem="8qY-nY-5IF" firstAttribute="leading" secondItem="gof-pv-4cJ" secondAttribute="leading" constant="20" id="Tiu-Wn-Znu"/>
                             <constraint firstItem="8qY-nY-5IF" firstAttribute="top" secondItem="OT8-gR-YtS" secondAttribute="bottom" constant="10" id="Y7k-Ju-Bm6"/>
                             <constraint firstItem="DAw-YC-p2u" firstAttribute="top" secondItem="8qY-nY-5IF" secondAttribute="bottom" constant="65" id="ZSv-cu-Fow"/>
+                            <constraint firstItem="vLZ-j7-Gst" firstAttribute="leading" secondItem="gof-pv-4cJ" secondAttribute="leading" constant="177" id="atd-lN-j3Z"/>
                             <constraint firstItem="OT8-gR-YtS" firstAttribute="top" secondItem="gof-pv-4cJ" secondAttribute="top" id="b7E-Vg-gyN"/>
+                            <constraint firstItem="vLZ-j7-Gst" firstAttribute="top" secondItem="dMd-eP-5Ei" secondAttribute="bottom" constant="82" id="c6a-nM-kUp"/>
                             <constraint firstItem="6Yw-lR-nSH" firstAttribute="centerX" secondItem="9Iv-4e-Oj9" secondAttribute="centerX" id="hx5-TU-Q0Z"/>
                             <constraint firstItem="gof-pv-4cJ" firstAttribute="trailing" secondItem="DAw-YC-p2u" secondAttribute="trailing" constant="50" id="kIx-pr-FtW"/>
                             <constraint firstItem="gof-pv-4cJ" firstAttribute="trailing" secondItem="dMd-eP-5Ei" secondAttribute="trailing" constant="50" id="mtB-KO-gPT"/>
@@ -322,10 +330,12 @@
                             <constraint firstItem="OT8-gR-YtS" firstAttribute="trailing" secondItem="gof-pv-4cJ" secondAttribute="trailing" id="sYB-gz-17U"/>
                             <constraint firstItem="gof-pv-4cJ" firstAttribute="trailing" secondItem="8qY-nY-5IF" secondAttribute="trailing" constant="20" id="tVa-74-u8L"/>
                             <constraint firstItem="6Yw-lR-nSH" firstAttribute="leading" secondItem="gof-pv-4cJ" secondAttribute="leading" constant="50" id="ugE-ZQ-9wz"/>
+                            <constraint firstItem="gof-pv-4cJ" firstAttribute="trailing" secondItem="vLZ-j7-Gst" secondAttribute="trailing" constant="178" id="z00-P2-rOx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="vSX-qK-fOI"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="vLZ-j7-Gst" id="mUO-1d-jCc"/>
                         <outlet property="cancelBarBtn" destination="cm5-Da-HMS" id="CMV-7f-1lJ"/>
                         <outlet property="findLocationBtn" destination="dMd-eP-5Ei" id="g13-ex-9TY"/>
                         <outlet property="locationTextField" destination="DAw-YC-p2u" id="h1P-k6-pVy"/>
@@ -334,7 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYH-KX-emT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="130"/>
+            <point key="canvasLocation" x="2536.8000000000002" y="129.31034482758622"/>
         </scene>
         <!--Add New Location Map View Controller-->
         <scene sceneID="o4E-3y-iNi">
@@ -354,7 +364,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Add Location" id="3EY-zR-cYe">
                                             <imageReference key="image" image="chevron.backward" catalog="system" renderingMode="template"/>
                                             <connections>
-                                                <segue destination="nro-0f-dsN" kind="presentation" modalPresentationStyle="fullScreen" id="mCm-EW-fZR"/>
+                                                <action selector="backBtnTapped:" destination="X1N-Vp-thd" id="ZPJ-RT-vNw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

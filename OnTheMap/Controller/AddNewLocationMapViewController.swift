@@ -23,6 +23,10 @@ class AddNewLocationMapViewController: UIViewController {
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
+    @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
     @IBAction func finishBtnTapped(_ sender: UIButton) {
         if APIClient.Auth.objectId == "" {
             APIClient.addNewStudentLocation(student: student) { success, err in
